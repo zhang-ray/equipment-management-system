@@ -25,6 +25,7 @@ compile:
   stage: build
   script:
     - go build -race -ldflags "-extldflags '-static'"
+    - tree
   artifacts:
     paths:
       - api-server
