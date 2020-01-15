@@ -13,7 +13,7 @@ variables:
 # Thus, making a symbolic link corrects this.
 before_script:
   - apt update && apt -y install tree
-  - git clone git@gitlab.com:zhang-ray/equipment-management-system.git
+  - git clone https://github.com/zhang-ray/equipment-management-system
   - cd ./equipment-management-system/backend/api-server
   - go get -d -v ./...
 
