@@ -1,13 +1,13 @@
 <template>
   <div class="dashboard-editor-container">
-
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
-
+    <device-info-table />
   </div>
 </template>
 
 <script>
 import PanelGroup from './components/PanelGroup'
+import DeviceInfoTable from './components/DeviceInfoTable'
 
 const lineChartData = {
   devices: {
@@ -31,7 +31,8 @@ const lineChartData = {
 export default {
   name: 'DashboardAdmin',
   components: {
-    PanelGroup
+    PanelGroup,
+    DeviceInfoTable
   },
   data() {
     return {
