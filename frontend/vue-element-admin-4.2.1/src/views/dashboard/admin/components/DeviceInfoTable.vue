@@ -1,13 +1,13 @@
 <template>
   <div class="device-info-table">
     <el-table v-loading="listLoading" :data="list" border fit highlight-current-row style="width: 100%">
-      <el-table-column align="center" label="Device ID" min-width="100" width="100">
+      <el-table-column align="center" label="Device ID" min-width="90" width="90">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column width="180px" align="center" label="Last Visible Date">
+      <el-table-column width="160px" min-width="160px" align="center" label="Last Visible Date">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
@@ -33,10 +33,20 @@
         </template>
       </el-table-column>
 
-      <el-table-column min-width="300px" label="Description">
+      <el-table-column min-wdith="130px" width="130px" align="center" label="CPU usage" />
+
+      <el-table-column min-wdith="130px" width="130px" align="center" label="Memory usage" />
+
+      <el-table-column min-wdith="130px" width="130px" align="center" label="Received/sec" />
+
+      <el-table-column min-wdith="130px" width="130px" align="center" label="Sent/sec" />
+
+      <el-table-column min-wdith="130px" width="130px" align="center" label="Temperature" />
+
+      <el-table-column min-width="200px" label="Remark">
         <template slot-scope="{row}">
           <template v-if="row.edit">
-            <el-input v-model="row.description" class="edit-input" size="small" />
+            <el-input v-model="row.title" class="edit-input" size="small" />
             <el-button
               class="cancel-btn"
               size="small"
@@ -47,32 +57,10 @@
               cancel
             </el-button>
           </template>
-          <span v-else>{{ row.description }}</span>
+          <span v-else>{{ row.title }}</span>
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="Edit Description" width="130" min-width="130">
-        <template slot-scope="{row}">
-          <el-button
-            v-if="row.edit"
-            type="success"
-            size="small"
-            icon="el-icon-circle-check-outline"
-            @click="confirmEdit(row)"
-          >
-            Ok
-          </el-button>
-          <el-button
-            v-else
-            type="primary"
-            size="small"
-            icon="el-icon-edit"
-            @click="row.edit=!row.edit"
-          >
-            Edit
-          </el-button>
-        </template>
-      </el-table-column>
     </el-table>
   </div>
 </template>
