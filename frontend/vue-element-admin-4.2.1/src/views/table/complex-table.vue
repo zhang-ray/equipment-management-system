@@ -53,7 +53,7 @@
       </el-table-column>
       <el-table-column label="Author" width="110px" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.author }}</span>
+          <span>{{ scope.row.device_name }}</span>
         </template>
       </el-table-column>
       <el-table-column v-if="showReviewer" label="Reviewer" width="110px" align="center">
